@@ -8,6 +8,10 @@
     {
       "source": "/api/:path*",
       "destination": "https://pqr-backend.azurecontainerapps.io/api/:path*"
+    },
+    {
+      "source": "/((?!assets/).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
