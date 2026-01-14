@@ -5,11 +5,12 @@ import { Clock, CheckCircle, AlertCircle, XCircle, TrendingUp, Users, FileText, 
 import MetricCard from '../components/pqr/MetricCard'
 import { MOCK_PQRS, TIPOS, CATEGORIAS, ESTADOS, getEstadisticas } from '../data/mockData'
 
+// Paleta: #00a8c6, #40c0cb, #f9f2e7, #aee239, #8fbe00
 const COLORS = {
-  peticion: '#31bdeb',
-  queja: '#e57373',
-  reclamo: '#f0c88d',
-  sugerencia: '#8dc853',
+  peticion: '#00a8c6',
+  queja: '#8fbe00',
+  reclamo: '#40c0cb',
+  sugerencia: '#aee239',
 }
 
 export default function Dashboard() {
@@ -148,7 +149,7 @@ export default function Dashboard() {
               <Tooltip
                 formatter={(value, name, props) => [`${value} PQRs`, props.payload.fullName]}
               />
-              <Bar dataKey="cantidad" fill="#31bdeb" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="cantidad" fill="#00a8c6" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

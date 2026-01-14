@@ -2,33 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Variables CSS del sistema de diseño */
+/* Variables CSS del sistema de diseño - Paleta de 5 colores */
 :root {
-  --brand-blue: #31bdeb;
-  --brand-green-dark: #1ab273;
-  --brand-green-light: #8dc853;
-  --brand-dark: #0d0e20;
+  /* Paleta principal */
+  --color-primary: #00a8c6;      /* Cyan primario */
+  --color-secondary: #40c0cb;    /* Cyan claro */
+  --color-background: #f9f2e7;   /* Crema */
+  --color-accent-light: #aee239; /* Verde lima */
+  --color-accent-dark: #8fbe00;  /* Verde oscuro */
 
-  --pqrs-peticion: #31bdeb;
-  --pqrs-queja: #e57373;
-  --pqrs-reclamo: #f0c88d;
-  --pqrs-sugerencia: #8dc853;
+  /* Aliases para compatibilidad */
+  --brand-blue: #00a8c6;
+  --brand-green-dark: #8fbe00;
+  --brand-green-light: #aee239;
+  --brand-dark: #00626e;
 
-  --status-pending: #f0c88d;
-  --status-in-progress: #31bdeb;
-  --status-resolved: #1ab273;
-  --status-closed: #6b6880;
+  /* PQRS tipos */
+  --pqrs-peticion: #00a8c6;
+  --pqrs-queja: #8fbe00;
+  --pqrs-reclamo: #40c0cb;
+  --pqrs-sugerencia: #aee239;
+
+  /* Estados */
+  --status-pending: #40c0cb;
+  --status-in-progress: #00a8c6;
+  --status-resolved: #aee239;
+  --status-closed: #8fbe00;
 }
 
 body {
   font-family: 'Geist', sans-serif;
-  background-color: #f8f7fa;
-  color: #3d3c4f;
+  background-color: #f9f2e7;
+  color: #00626e;
 }
 
 .dark body {
-  background-color: #0d0e20;
-  color: #e0ddef;
+  background-color: #00626e;
+  color: #f9f2e7;
 }
 
 /* Componentes base */
@@ -41,12 +51,12 @@ body {
   .btn-primary {
     @apply bg-brand-blue text-white hover:bg-opacity-90;
     @apply focus:ring-brand-blue;
-    box-shadow: rgba(13, 14, 32, 0.4) 0 2px 4px, rgba(13, 14, 32, 0.3) 0 7px 13px -3px, rgba(49, 189, 235, 0.3) 0 -3px 0 inset;
+    box-shadow: rgba(0, 98, 110, 0.4) 0 2px 4px, rgba(0, 98, 110, 0.3) 0 7px 13px -3px, rgba(0, 168, 198, 0.3) 0 -3px 0 inset;
   }
 
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: rgba(13, 14, 32, 0.4) 0 4px 8px, rgba(13, 14, 32, 0.3) 0 7px 13px -3px, rgba(49, 189, 235, 0.3) 0 -3px 0 inset;
+    box-shadow: rgba(0, 98, 110, 0.4) 0 4px 8px, rgba(0, 98, 110, 0.3) 0 7px 13px -3px, rgba(0, 168, 198, 0.3) 0 -3px 0 inset;
   }
 
   .btn-success {

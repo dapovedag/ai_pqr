@@ -147,10 +147,10 @@ export default function Analytics() {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Area type="monotone" dataKey="Peticiones" stackId="1" stroke="#31bdeb" fill="#31bdeb" fillOpacity={0.6} />
-            <Area type="monotone" dataKey="Quejas" stackId="1" stroke="#e57373" fill="#e57373" fillOpacity={0.6} />
-            <Area type="monotone" dataKey="Reclamos" stackId="1" stroke="#f0c88d" fill="#f0c88d" fillOpacity={0.6} />
-            <Area type="monotone" dataKey="Sugerencias" stackId="1" stroke="#8dc853" fill="#8dc853" fillOpacity={0.6} />
+            <Area type="monotone" dataKey="Peticiones" stackId="1" stroke="#00a8c6" fill="#00a8c6" fillOpacity={0.6} />
+            <Area type="monotone" dataKey="Quejas" stackId="1" stroke="#8fbe00" fill="#8fbe00" fillOpacity={0.6} />
+            <Area type="monotone" dataKey="Reclamos" stackId="1" stroke="#40c0cb" fill="#40c0cb" fillOpacity={0.6} />
+            <Area type="monotone" dataKey="Sugerencias" stackId="1" stroke="#aee239" fill="#aee239" fillOpacity={0.6} />
           </AreaChart>
         </ResponsiveContainer>
       </div>
@@ -170,8 +170,8 @@ export default function Analytics() {
             <XAxis dataKey="mes" />
             <YAxis domain={[70, 100]} />
             <Tooltip formatter={(value) => [`${value}%`, 'Tasa de Resolución']} />
-            <ReferenceLine x="Mar" stroke="#9333ea" strokeDasharray="5 5" strokeWidth={2} label={{ value: 'IA', position: 'top', fill: '#9333ea', fontSize: 12 }} />
-            <Line type="monotone" dataKey="tasa" stroke="#1ab273" strokeWidth={3} dot={{ r: 6, fill: '#1ab273' }} />
+            <ReferenceLine x="Mar" stroke="#8fbe00" strokeDasharray="5 5" strokeWidth={2} label={{ value: 'IA', position: 'top', fill: '#8fbe00', fontSize: 12 }} />
+            <Line type="monotone" dataKey="tasa" stroke="#aee239" strokeWidth={3} dot={{ r: 6, fill: '#aee239' }} />
           </LineChart>
         </ResponsiveContainer>
         <div className="mt-3 flex items-center justify-center gap-6 text-sm">
@@ -200,7 +200,7 @@ export default function Analytics() {
               <PolarGrid />
               <PolarAngleAxis dataKey="categoria" tick={{ fontSize: 10 }} />
               <PolarRadiusAxis />
-              <Radar dataKey="cantidad" stroke="#31bdeb" fill="#31bdeb" fillOpacity={0.5} />
+              <Radar dataKey="cantidad" stroke="#00a8c6" fill="#00a8c6" fillOpacity={0.5} />
               <Tooltip formatter={(value, name, props) => [value, props.payload.fullName]} />
             </RadarChart>
           </ResponsiveContainer>
@@ -304,7 +304,7 @@ export default function Analytics() {
               <XAxis dataKey="hora" tick={{ fontSize: 10 }} />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="cantidad" fill="#31bdeb" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="cantidad" fill="#00a8c6" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
           <p className="text-xs text-gray-500 mt-2 text-center">
@@ -317,19 +317,19 @@ export default function Analytics() {
           <h3 className="text-lg font-semibold mb-4">Por Día de Semana</h3>
           <ResponsiveContainer width="100%" height={180}>
             <BarChart data={[
-              { dia: 'Lun', cantidad: 18, color: '#31bdeb' },
-              { dia: 'Mar', cantidad: 22, color: '#31bdeb' },
-              { dia: 'Mié', cantidad: 20, color: '#31bdeb' },
-              { dia: 'Jue', cantidad: 19, color: '#31bdeb' },
-              { dia: 'Vie', cantidad: 15, color: '#31bdeb' },
-              { dia: 'Sáb', cantidad: 4, color: '#94a3b8' },
-              { dia: 'Dom', cantidad: 2, color: '#94a3b8' },
+              { dia: 'Lun', cantidad: 18, color: '#00a8c6' },
+              { dia: 'Mar', cantidad: 22, color: '#00a8c6' },
+              { dia: 'Mié', cantidad: 20, color: '#00a8c6' },
+              { dia: 'Jue', cantidad: 19, color: '#00a8c6' },
+              { dia: 'Vie', cantidad: 15, color: '#00a8c6' },
+              { dia: 'Sáb', cantidad: 4, color: '#40c0cb' },
+              { dia: 'Dom', cantidad: 2, color: '#40c0cb' },
             ]}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="dia" tick={{ fontSize: 10 }} />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="cantidad" fill="#31bdeb" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="cantidad" fill="#00a8c6" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
           <p className="text-xs text-gray-500 mt-2 text-center">
@@ -362,7 +362,7 @@ export default function Analytics() {
                 }
                 return null
               }} />
-              <Bar dataKey="cantidad" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="cantidad" fill="#8fbe00" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
           <p className="text-xs text-gray-500 mt-2 text-center">

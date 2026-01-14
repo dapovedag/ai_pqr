@@ -2,12 +2,12 @@
  * Datos mock de 1000 PQRs para demostración del sistema
  */
 
-// Tipos y sus colores
+// Tipos y sus colores (Paleta: #00a8c6, #40c0cb, #f9f2e7, #aee239, #8fbe00)
 export const TIPOS = {
-  peticion: { label: 'Petición', color: '#31bdeb', bgClass: 'bg-blue-100 text-blue-700' },
-  queja: { label: 'Queja', color: '#e57373', bgClass: 'bg-red-100 text-red-700' },
-  reclamo: { label: 'Reclamo', color: '#f0c88d', bgClass: 'bg-yellow-100 text-yellow-700' },
-  sugerencia: { label: 'Sugerencia', color: '#8dc853', bgClass: 'bg-green-100 text-green-700' },
+  peticion: { label: 'Petición', color: '#00a8c6', bgClass: 'bg-cyan-100 text-cyan-700' },
+  queja: { label: 'Queja', color: '#8fbe00', bgClass: 'bg-lime-100 text-lime-700' },
+  reclamo: { label: 'Reclamo', color: '#40c0cb', bgClass: 'bg-teal-100 text-teal-700' },
+  sugerencia: { label: 'Sugerencia', color: '#aee239', bgClass: 'bg-green-100 text-green-700' },
 }
 
 // Categorías
@@ -22,12 +22,12 @@ export const CATEGORIAS = {
   gobierno: { label: 'Gobierno', icon: '🏛️' },
 }
 
-// Estados
+// Estados (Paleta: #00a8c6, #40c0cb, #f9f2e7, #aee239, #8fbe00)
 export const ESTADOS = {
-  pendiente: { label: 'Pendiente', color: '#f0c88d', bgClass: 'bg-yellow-100 text-yellow-700' },
-  en_proceso: { label: 'En Proceso', color: '#31bdeb', bgClass: 'bg-blue-100 text-blue-700' },
-  resuelto: { label: 'Resuelto', color: '#1ab273', bgClass: 'bg-green-100 text-green-700' },
-  cerrado: { label: 'Cerrado', color: '#6b6880', bgClass: 'bg-gray-100 text-gray-600' },
+  pendiente: { label: 'Pendiente', color: '#40c0cb', bgClass: 'bg-teal-100 text-teal-700' },
+  en_proceso: { label: 'En Proceso', color: '#00a8c6', bgClass: 'bg-cyan-100 text-cyan-700' },
+  resuelto: { label: 'Resuelto', color: '#aee239', bgClass: 'bg-green-100 text-green-700' },
+  cerrado: { label: 'Cerrado', color: '#8fbe00', bgClass: 'bg-lime-100 text-lime-700' },
 }
 
 // 10 PQRs de ejemplo para el panel derecho de NewPQR

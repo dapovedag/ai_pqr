@@ -7,11 +7,12 @@ const ICONS = {
   sugerencia: Lightbulb,
 }
 
+// Paleta: #00a8c6, #40c0cb, #f9f2e7, #aee239, #8fbe00
 const COLORS = {
-  peticion: '#31bdeb',
-  queja: '#e57373',
-  reclamo: '#f0c88d',
-  sugerencia: '#8dc853',
+  peticion: '#00a8c6',
+  queja: '#8fbe00',
+  reclamo: '#40c0cb',
+  sugerencia: '#aee239',
 }
 
 export default function MetricCard({ type, value, label, trend, onClick }) {

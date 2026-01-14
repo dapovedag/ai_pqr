@@ -8,23 +8,29 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Paleta principal: #00a8c6, #40c0cb, #f9f2e7, #aee239, #8fbe00
         brand: {
-          blue: '#31bdeb',
-          'green-dark': '#1ab273',
-          'green-light': '#8dc853',
-          dark: '#0d0e20',
+          primary: '#00a8c6',
+          secondary: '#40c0cb',
+          background: '#f9f2e7',
+          'accent-light': '#aee239',
+          'accent-dark': '#8fbe00',
+          blue: '#00a8c6',
+          'green-dark': '#8fbe00',
+          'green-light': '#aee239',
+          dark: '#00626e',
         },
         pqrs: {
-          peticion: '#31bdeb',
-          queja: '#e57373',
-          reclamo: '#f0c88d',
-          sugerencia: '#8dc853',
+          peticion: '#00a8c6',
+          queja: '#8fbe00',
+          reclamo: '#40c0cb',
+          sugerencia: '#aee239',
         },
         status: {
-          pending: '#f0c88d',
-          progress: '#31bdeb',
-          resolved: '#1ab273',
-          closed: '#6b6880',
+          pending: '#40c0cb',
+          progress: '#00a8c6',
+          resolved: '#aee239',
+          closed: '#8fbe00',
         },
       },
       fontFamily: {
