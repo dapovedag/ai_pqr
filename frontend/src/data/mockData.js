@@ -352,75 +352,85 @@ function generateMockPQRs(count = 100) {
 // Exportar los datos generados (100 PQRs)
 export const MOCK_PQRS = generateMockPQRs(100)
 
-// Estadísticas calculadas
-export function getEstadisticas() {
-  const stats = {
-    total: MOCK_PQRS.length,
-    por_tipo: {},
-    por_categoria: {},
-    por_estado: {},
-    por_mes: {},
-    resueltas_hoy: 0,
-    pendientes: 0,
-    tiempo_promedio_respuesta: 4.2, // días
-    satisfaccion: 87, // porcentaje
-  }
-
-  const hoy = new Date().toDateString()
-
-  MOCK_PQRS.forEach(pqr => {
-    // Por tipo
-    stats.por_tipo[pqr.tipo] = (stats.por_tipo[pqr.tipo] || 0) + 1
-
-    // Por categoría
-    stats.por_categoria[pqr.categoria] = (stats.por_categoria[pqr.categoria] || 0) + 1
-
-    // Por estado
-    stats.por_estado[pqr.estado] = (stats.por_estado[pqr.estado] || 0) + 1
-
-    // Por mes
-    const mes = new Date(pqr.fecha_creacion).toLocaleString('es', { month: 'short' })
-    stats.por_mes[mes] = (stats.por_mes[mes] || 0) + 1
-
-    // Resueltas hoy
-    if (pqr.estado === 'resuelto' && new Date(pqr.fecha_actualizacion).toDateString() === hoy) {
-      stats.resueltas_hoy++
-    }
-
-    // Pendientes
-    if (pqr.estado === 'pendiente') {
-      stats.pendientes++
-    }
-  })
-
-  return stats
+// Estadísticas GLOBALES del sistema (3256 PQRs en 2025)
+// El listado muestra solo las últimas 100, pero las estadísticas reflejan el total histórico
+export const ESTADISTICAS_GLOBALES = {
+  total: 3256,
+  año: 2025,
+  // Distribución por tipo (proporciones realistas)
+  por_tipo: {
+    peticion: 1302,    // 40%
+    queja: 815,        // 25%
+    reclamo: 652,      // 20%
+    sugerencia: 487,   // 15%
+  },
+  // Distribución por categoría
+  por_categoria: {
+    servicios_publicos: 554,   // 17%
+    banca: 489,                // 15%
+    salud: 456,                // 14%
+    telecomunicaciones: 423,  // 13%
+    transporte: 358,           // 11%
+    comercio: 391,             // 12%
+    educacion: 293,            // 9%
+    gobierno: 292,             // 9%
+  },
+  // Distribución por estado
+  por_estado: {
+    pendiente: 326,     // 10%
+    en_proceso: 489,    // 15%
+    resuelto: 1954,     // 60%
+    cerrado: 487,       // 15%
+  },
+  // Distribución mensual en 2025
+  por_mes: {
+    'ene 2025': 245,
+    'feb 2025': 267,
+    'mar 2025': 289,
+    'abr 2025': 301,
+    'may 2025': 278,
+    'jun 2025': 312,
+    'jul 2025': 298,
+    'ago 2025': 285,
+    'sep 2025': 267,
+    'oct 2025': 254,
+    'nov 2025': 231,
+    'dic 2025': 229,
+  },
+  resueltas_hoy: 12,
+  tiempo_promedio_respuesta: 4.2, // días
+  satisfaccion: 87, // porcentaje
 }
 
-// Datos para gráficos de tendencia (últimos 6 meses)
-export function getDatosTendencia() {
-  const meses = []
-  const fecha = new Date()
-
-  for (let i = 5; i >= 0; i--) {
-    const mesDate = new Date(fecha.getFullYear(), fecha.getMonth() - i, 1)
-    const mes = mesDate.toLocaleString('es', { month: 'short' })
-    const año = mesDate.getFullYear()
-
-    const pqrsMes = MOCK_PQRS.filter(pqr => {
-      const pqrDate = new Date(pqr.fecha_creacion)
-      return pqrDate.getMonth() === mesDate.getMonth() && pqrDate.getFullYear() === mesDate.getFullYear()
-    })
-
-    meses.push({
-      mes: `${mes} ${año}`,
-      total: pqrsMes.length,
-      peticiones: pqrsMes.filter(p => p.tipo === 'peticion').length,
-      quejas: pqrsMes.filter(p => p.tipo === 'queja').length,
-      reclamos: pqrsMes.filter(p => p.tipo === 'reclamo').length,
-      sugerencias: pqrsMes.filter(p => p.tipo === 'sugerencia').length,
-      resueltas: pqrsMes.filter(p => p.estado === 'resuelto' || p.estado === 'cerrado').length,
-    })
+// Estadísticas calculadas (usando datos globales de 3256 PQRs)
+export function getEstadisticas() {
+  return {
+    ...ESTADISTICAS_GLOBALES,
+    pendientes: ESTADISTICAS_GLOBALES.por_estado.pendiente,
   }
+}
 
-  return meses
+// Datos para gráficos de tendencia (12 meses de 2025 con 3256 PQRs)
+export function getDatosTendencia() {
+  // Datos mensuales históricos de 2025 (3256 PQRs distribuidas)
+  return [
+    { mes: 'Ene 2025', total: 245, peticiones: 98, quejas: 61, reclamos: 49, sugerencias: 37, resueltas: 196 },
+    { mes: 'Feb 2025', total: 267, peticiones: 107, quejas: 67, reclamos: 53, sugerencias: 40, resueltas: 214 },
+    { mes: 'Mar 2025', total: 289, peticiones: 116, quejas: 72, reclamos: 58, sugerencias: 43, resueltas: 231 },
+    { mes: 'Abr 2025', total: 301, peticiones: 120, quejas: 75, reclamos: 60, sugerencias: 46, resueltas: 241 },
+    { mes: 'May 2025', total: 278, peticiones: 111, quejas: 70, reclamos: 56, sugerencias: 41, resueltas: 222 },
+    { mes: 'Jun 2025', total: 312, peticiones: 125, quejas: 78, reclamos: 62, sugerencias: 47, resueltas: 250 },
+    { mes: 'Jul 2025', total: 298, peticiones: 119, quejas: 75, reclamos: 60, sugerencias: 44, resueltas: 238 },
+    { mes: 'Ago 2025', total: 285, peticiones: 114, quejas: 71, reclamos: 57, sugerencias: 43, resueltas: 228 },
+    { mes: 'Sep 2025', total: 267, peticiones: 107, quejas: 67, reclamos: 53, sugerencias: 40, resueltas: 214 },
+    { mes: 'Oct 2025', total: 254, peticiones: 102, quejas: 63, reclamos: 51, sugerencias: 38, resueltas: 203 },
+    { mes: 'Nov 2025', total: 231, peticiones: 92, quejas: 58, reclamos: 46, sugerencias: 35, resueltas: 185 },
+    { mes: 'Dic 2025', total: 229, peticiones: 92, quejas: 57, reclamos: 46, sugerencias: 34, resueltas: 183 },
+  ]
+}
+
+// Datos de tendencia para gráficos (últimos 6 meses)
+export function getDatosTendencia6Meses() {
+  const tendenciaCompleta = getDatosTendencia()
+  return tendenciaCompleta.slice(-6) // Últimos 6 meses
 }
