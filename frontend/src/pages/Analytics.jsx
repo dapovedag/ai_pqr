@@ -2,9 +2,10 @@ import { useState } from 'react'
 import {
   LineChart, Line, AreaChart, Area, BarChart, Bar,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
-  RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis
+  RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis,
+  ReferenceLine
 } from 'recharts'
-import { TrendingUp, TrendingDown, Brain, Clock, Target, Zap, Calendar } from 'lucide-react'
+import { TrendingUp, TrendingDown, Brain, Clock, Target, Zap, Calendar, Sparkles } from 'lucide-react'
 import { MOCK_PQRS, TIPOS, CATEGORIAS, getEstadisticas, getDatosTendencia } from '../data/mockData'
 
 export default function Analytics() {
@@ -154,22 +155,43 @@ export default function Analytics() {
         </ResponsiveContainer>
       </div>
 
+      {/* Tasa de resolución con línea de adopción IA */}
+      <div className="card">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-lg font-semibold">Evolución Tasa de Resolución</h3>
+          <div className="flex items-center gap-2 text-sm">
+            <Sparkles size={16} className="text-purple-500" />
+            <span className="text-purple-600 font-medium">IA adoptada en Marzo 2025</span>
+          </div>
+        </div>
+        <ResponsiveContainer width="100%" height={280}>
+          <LineChart data={tendenciaResolucion}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="mes" />
+            <YAxis domain={[70, 100]} />
+            <Tooltip formatter={(value) => [`${value}%`, 'Tasa de Resolución']} />
+            <ReferenceLine x="Mar" stroke="#9333ea" strokeDasharray="5 5" strokeWidth={2} label={{ value: 'IA', position: 'top', fill: '#9333ea', fontSize: 12 }} />
+            <Line type="monotone" dataKey="tasa" stroke="#1ab273" strokeWidth={3} dot={{ r: 6, fill: '#1ab273' }} />
+          </LineChart>
+        </ResponsiveContainer>
+        <div className="mt-3 flex items-center justify-center gap-6 text-sm">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-gray-400"></div>
+            <span className="text-gray-500">Antes de IA: 75-77%</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <span className="text-gray-500">Con IA: 82% → 96%</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-purple-600 font-bold">+21%</span>
+            <span className="text-gray-500">mejora total</span>
+          </div>
+        </div>
+      </div>
+
       {/* Gráficos lado a lado */}
       <div className="grid md:grid-cols-2 gap-6">
-        {/* Tasa de resolución mensual */}
-        <div className="card">
-          <h3 className="text-lg font-semibold mb-4">Evolución Tasa de Resolución</h3>
-          <ResponsiveContainer width="100%" height={250}>
-            <LineChart data={tendenciaResolucion}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="mes" />
-              <YAxis domain={[0, 100]} />
-              <Tooltip formatter={(value) => [`${value}%`, 'Tasa']} />
-              <Line type="monotone" dataKey="tasa" stroke="#1ab273" strokeWidth={3} dot={{ r: 6 }} />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-
         {/* Radar de categorías */}
         <div className="card">
           <h3 className="text-lg font-semibold mb-4">Distribución por Categoría</h3>
@@ -182,6 +204,37 @@ export default function Analytics() {
               <Tooltip formatter={(value, name, props) => [value, props.payload.fullName]} />
             </RadarChart>
           </ResponsiveContainer>
+        </div>
+
+        {/* Impacto de la IA */}
+        <div className="card bg-gradient-to-br from-purple-50 to-green-50 dark:from-gray-800 dark:to-gray-800 border-2 border-purple-200">
+          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <Sparkles className="text-purple-500" size={20} />
+            Impacto de la IA
+          </h3>
+          <div className="space-y-4">
+            <div className="flex justify-between items-center">
+              <span className="text-gray-600">Tasa resolución pre-IA</span>
+              <span className="text-xl font-bold text-gray-500">76%</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-600">Tasa resolución actual</span>
+              <span className="text-xl font-bold text-green-600">96%</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-600">Mejora absoluta</span>
+              <span className="text-xl font-bold text-purple-600">+20 pts</span>
+            </div>
+            <div className="flex justify-between items-center">
+              <span className="text-gray-600">Tiempo promedio respuesta</span>
+              <span className="text-xl font-bold text-blue-600">-2.3 días</span>
+            </div>
+            <div className="pt-2 border-t">
+              <p className="text-xs text-gray-500">
+                Desde la adopción de IA en marzo, la eficiencia ha mejorado consistentemente cada mes.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -232,29 +285,90 @@ export default function Analytics() {
         </div>
       </div>
 
-      {/* Volumen por hora del día (simulado) */}
-      <div className="card">
-        <h3 className="text-lg font-semibold mb-4">Distribución por Hora del Día</h3>
-        <ResponsiveContainer width="100%" height={200}>
-          <BarChart data={[
-            { hora: '00-06', cantidad: 5 },
-            { hora: '06-09', cantidad: 12 },
-            { hora: '09-12', cantidad: 28 },
-            { hora: '12-14', cantidad: 15 },
-            { hora: '14-17', cantidad: 25 },
-            { hora: '17-20', cantidad: 10 },
-            { hora: '20-24', cantidad: 5 },
-          ]}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="hora" />
-            <YAxis />
-            <Tooltip />
-            <Bar dataKey="cantidad" fill="#31bdeb" radius={[4, 4, 0, 0]} />
-          </BarChart>
-        </ResponsiveContainer>
-        <p className="text-xs text-gray-500 mt-2 text-center">
-          Mayor volumen entre 9:00 AM y 5:00 PM (horario laboral)
-        </p>
+      {/* Distribución temporal - 3 gráficos */}
+      <div className="grid md:grid-cols-3 gap-6">
+        {/* Por hora del día */}
+        <div className="card">
+          <h3 className="text-lg font-semibold mb-4">Por Hora del Día</h3>
+          <ResponsiveContainer width="100%" height={180}>
+            <BarChart data={[
+              { hora: '00-06', cantidad: 5 },
+              { hora: '06-09', cantidad: 12 },
+              { hora: '09-12', cantidad: 28 },
+              { hora: '12-14', cantidad: 15 },
+              { hora: '14-17', cantidad: 25 },
+              { hora: '17-20', cantidad: 10 },
+              { hora: '20-24', cantidad: 5 },
+            ]}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="hora" tick={{ fontSize: 10 }} />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="cantidad" fill="#31bdeb" radius={[4, 4, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+          <p className="text-xs text-gray-500 mt-2 text-center">
+            Pico: 9AM-12PM y 2PM-5PM
+          </p>
+        </div>
+
+        {/* Por día de la semana */}
+        <div className="card">
+          <h3 className="text-lg font-semibold mb-4">Por Día de Semana</h3>
+          <ResponsiveContainer width="100%" height={180}>
+            <BarChart data={[
+              { dia: 'Lun', cantidad: 18, color: '#31bdeb' },
+              { dia: 'Mar', cantidad: 22, color: '#31bdeb' },
+              { dia: 'Mié', cantidad: 20, color: '#31bdeb' },
+              { dia: 'Jue', cantidad: 19, color: '#31bdeb' },
+              { dia: 'Vie', cantidad: 15, color: '#31bdeb' },
+              { dia: 'Sáb', cantidad: 4, color: '#94a3b8' },
+              { dia: 'Dom', cantidad: 2, color: '#94a3b8' },
+            ]}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="dia" tick={{ fontSize: 10 }} />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="cantidad" fill="#31bdeb" radius={[4, 4, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+          <p className="text-xs text-gray-500 mt-2 text-center">
+            Mayor carga: Martes y Miércoles
+          </p>
+        </div>
+
+        {/* Por semana del mes */}
+        <div className="card">
+          <h3 className="text-lg font-semibold mb-4">Por Semana del Mes</h3>
+          <ResponsiveContainer width="100%" height={180}>
+            <BarChart data={[
+              { semana: 'Sem 1', cantidad: 32, dias: '1-7' },
+              { semana: 'Sem 2', cantidad: 24, dias: '8-14' },
+              { semana: 'Sem 3', cantidad: 22, dias: '15-21' },
+              { semana: 'Sem 4', cantidad: 22, dias: '22-31' },
+            ]}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="semana" tick={{ fontSize: 10 }} />
+              <YAxis />
+              <Tooltip content={({ active, payload }) => {
+                if (active && payload && payload.length) {
+                  return (
+                    <div className="bg-white p-2 border rounded shadow text-sm">
+                      <p className="font-medium">{payload[0].payload.semana}</p>
+                      <p className="text-gray-500">Días {payload[0].payload.dias}</p>
+                      <p className="text-brand-blue">{payload[0].value}% del total</p>
+                    </div>
+                  )
+                }
+                return null
+              }} />
+              <Bar dataKey="cantidad" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
+          <p className="text-xs text-gray-500 mt-2 text-center">
+            +33% más carga en primera semana
+          </p>
+        </div>
       </div>
 
       {/* Resumen ejecutivo */}

@@ -411,21 +411,25 @@ export function getEstadisticas() {
 }
 
 // Datos para gráficos de tendencia (12 meses de 2025 con 3256 PQRs)
+// NOTA: La IA fue adoptada en Marzo 2025, mostrando mejora progresiva en tasa de resolución
 export function getDatosTendencia() {
   // Datos mensuales históricos de 2025 (3256 PQRs distribuidas)
+  // Antes de IA (Ene-Feb): ~75-77% resolución
+  // Adopción IA (Mar): 82% resolución - inicio de mejora
+  // Post-IA (Abr-Dic): mejora progresiva hasta 96%
   return [
-    { mes: 'Ene 2025', total: 245, peticiones: 98, quejas: 61, reclamos: 49, sugerencias: 37, resueltas: 196 },
-    { mes: 'Feb 2025', total: 267, peticiones: 107, quejas: 67, reclamos: 53, sugerencias: 40, resueltas: 214 },
-    { mes: 'Mar 2025', total: 289, peticiones: 116, quejas: 72, reclamos: 58, sugerencias: 43, resueltas: 231 },
-    { mes: 'Abr 2025', total: 301, peticiones: 120, quejas: 75, reclamos: 60, sugerencias: 46, resueltas: 241 },
-    { mes: 'May 2025', total: 278, peticiones: 111, quejas: 70, reclamos: 56, sugerencias: 41, resueltas: 222 },
-    { mes: 'Jun 2025', total: 312, peticiones: 125, quejas: 78, reclamos: 62, sugerencias: 47, resueltas: 250 },
-    { mes: 'Jul 2025', total: 298, peticiones: 119, quejas: 75, reclamos: 60, sugerencias: 44, resueltas: 238 },
-    { mes: 'Ago 2025', total: 285, peticiones: 114, quejas: 71, reclamos: 57, sugerencias: 43, resueltas: 228 },
-    { mes: 'Sep 2025', total: 267, peticiones: 107, quejas: 67, reclamos: 53, sugerencias: 40, resueltas: 214 },
-    { mes: 'Oct 2025', total: 254, peticiones: 102, quejas: 63, reclamos: 51, sugerencias: 38, resueltas: 203 },
-    { mes: 'Nov 2025', total: 231, peticiones: 92, quejas: 58, reclamos: 46, sugerencias: 35, resueltas: 185 },
-    { mes: 'Dic 2025', total: 229, peticiones: 92, quejas: 57, reclamos: 46, sugerencias: 34, resueltas: 183 },
+    { mes: 'Ene 2025', total: 245, peticiones: 98, quejas: 61, reclamos: 49, sugerencias: 37, resueltas: 184, conIA: false },  // 75%
+    { mes: 'Feb 2025', total: 267, peticiones: 107, quejas: 67, reclamos: 53, sugerencias: 40, resueltas: 206, conIA: false }, // 77%
+    { mes: 'Mar 2025', total: 289, peticiones: 116, quejas: 72, reclamos: 58, sugerencias: 43, resueltas: 237, conIA: true },  // 82% - ADOPCIÓN IA
+    { mes: 'Abr 2025', total: 301, peticiones: 120, quejas: 75, reclamos: 60, sugerencias: 46, resueltas: 259, conIA: true },  // 86%
+    { mes: 'May 2025', total: 278, peticiones: 111, quejas: 70, reclamos: 56, sugerencias: 41, resueltas: 245, conIA: true },  // 88%
+    { mes: 'Jun 2025', total: 312, peticiones: 125, quejas: 78, reclamos: 62, sugerencias: 47, resueltas: 281, conIA: true },  // 90%
+    { mes: 'Jul 2025', total: 298, peticiones: 119, quejas: 75, reclamos: 60, sugerencias: 44, resueltas: 271, conIA: true },  // 91%
+    { mes: 'Ago 2025', total: 285, peticiones: 114, quejas: 71, reclamos: 57, sugerencias: 43, resueltas: 262, conIA: true },  // 92%
+    { mes: 'Sep 2025', total: 267, peticiones: 107, quejas: 67, reclamos: 53, sugerencias: 40, resueltas: 248, conIA: true },  // 93%
+    { mes: 'Oct 2025', total: 254, peticiones: 102, quejas: 63, reclamos: 51, sugerencias: 38, resueltas: 239, conIA: true },  // 94%
+    { mes: 'Nov 2025', total: 231, peticiones: 92, quejas: 58, reclamos: 46, sugerencias: 35, resueltas: 219, conIA: true },   // 95%
+    { mes: 'Dic 2025', total: 229, peticiones: 92, quejas: 57, reclamos: 46, sugerencias: 34, resueltas: 220, conIA: true },   // 96%
   ]
 }
 
