@@ -1,3 +1,17 @@
+import { Zap, Landmark, Heart, Smartphone, Bus, ShoppingCart, GraduationCap, Building2 } from 'lucide-react'
+
+// Mapeo de iconos de categoría
+const CATEGORY_ICONS = {
+  servicios_publicos: Zap,
+  banca: Landmark,
+  salud: Heart,
+  telecomunicaciones: Smartphone,
+  transporte: Bus,
+  comercio: ShoppingCart,
+  educacion: GraduationCap,
+  gobierno: Building2,
+}
+
 const TYPE_CONFIG = {
   peticion: { label: 'Petición', className: 'badge-peticion' },
   queja: { label: 'Queja', className: 'badge-queja' },
@@ -33,20 +47,27 @@ export function StatusBadge({ status }) {
   )
 }
 
-export function CategoryBadge({ category }) {
+export function CategoryIcon({ category, size = 16, className = '' }) {
+  const Icon = CATEGORY_ICONS[category]
+  if (!Icon) return null
+  return <Icon size={size} className={className} />
+}
+
+export function CategoryBadge({ category, showIcon = false }) {
   const labels = {
-    servicios_publicos: 'Servicios Públicos',
+    servicios_publicos: 'Servicios Publicos',
     banca: 'Banca',
     salud: 'Salud',
     telecomunicaciones: 'Telecomunicaciones',
     transporte: 'Transporte',
     comercio: 'Comercio',
-    educacion: 'Educación',
+    educacion: 'Educacion',
     gobierno: 'Gobierno',
   }
 
   return (
-    <span className="text-sm text-gray-600 dark:text-gray-400">
+    <span className="text-sm text-gray-600 dark:text-gray-400 flex items-center gap-1">
+      {showIcon && <CategoryIcon category={category} size={14} />}
       {labels[category] || category}
     </span>
   )

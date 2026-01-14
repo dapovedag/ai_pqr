@@ -10,16 +10,16 @@ export const TIPOS = {
   sugerencia: { label: 'Sugerencia', color: '#aee239', bgClass: 'bg-green-100 text-green-700' },
 }
 
-// Categorías
+// Categorías (iconName es el nombre del icono de Lucide)
 export const CATEGORIAS = {
-  servicios_publicos: { label: 'Servicios Públicos', icon: '💡' },
-  banca: { label: 'Banca', icon: '🏦' },
-  salud: { label: 'Salud', icon: '🏥' },
-  telecomunicaciones: { label: 'Telecomunicaciones', icon: '📱' },
-  transporte: { label: 'Transporte', icon: '🚌' },
-  comercio: { label: 'Comercio', icon: '🛒' },
-  educacion: { label: 'Educación', icon: '🎓' },
-  gobierno: { label: 'Gobierno', icon: '🏛️' },
+  servicios_publicos: { label: 'Servicios Publicos', iconName: 'Zap' },
+  banca: { label: 'Banca', iconName: 'Landmark' },
+  salud: { label: 'Salud', iconName: 'Heart' },
+  telecomunicaciones: { label: 'Telecomunicaciones', iconName: 'Smartphone' },
+  transporte: { label: 'Transporte', iconName: 'Bus' },
+  comercio: { label: 'Comercio', iconName: 'ShoppingCart' },
+  educacion: { label: 'Educacion', iconName: 'GraduationCap' },
+  gobierno: { label: 'Gobierno', iconName: 'Building2' },
 }
 
 // Estados (Paleta: #00a8c6, #40c0cb, #f9f2e7, #aee239, #8fbe00)

@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import { Send, Sparkles, Loader2, RefreshCw, Brain, ChevronRight } from 'lucide-react'
 import { createPQR, classifyPQR, suggestResponse } from '../services/api'
-import { TypeBadge, CategoryBadge, ConfidenceBadge } from '../components/pqr/ClassificationBadge'
+import { TypeBadge, CategoryBadge, ConfidenceBadge, CategoryIcon } from '../components/pqr/ClassificationBadge'
 import { EJEMPLO_PQRS, TIPOS, CATEGORIAS } from '../data/mockData'
 
 export default function NewPQR() {
@@ -260,8 +260,9 @@ export default function NewPQR() {
                     <CategoryBadge category={classification.categoria} />
                     <ConfidenceBadge value={classification.categoria_confianza} />
                   </div>
-                  <p className="text-xs text-gray-500">
-                    {CATEGORIAS[classification.categoria]?.icon} {CATEGORIAS[classification.categoria]?.label}
+                  <p className="text-xs text-gray-500 flex items-center gap-1">
+                    <CategoryIcon category={classification.categoria} size={12} />
+                    {CATEGORIAS[classification.categoria]?.label}
                   </p>
                 </div>
               </div>
@@ -387,8 +388,9 @@ export default function NewPQR() {
                   >
                     {TIPOS[ejemplo.tipo]?.label}
                   </span>
-                  <span className="text-xs text-gray-500">
-                    {CATEGORIAS[ejemplo.categoria]?.icon} {CATEGORIAS[ejemplo.categoria]?.label}
+                  <span className="text-xs text-gray-500 flex items-center gap-1">
+                    <CategoryIcon category={ejemplo.categoria} size={12} />
+                    {CATEGORIAS[ejemplo.categoria]?.label}
                   </span>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2">

@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ChevronLeft, ChevronRight, Eye, Filter, Search } from 'lucide-react'
-import { TypeBadge, StatusBadge, CategoryBadge } from '../components/pqr/ClassificationBadge'
+import { CategoryIcon } from '../components/pqr/ClassificationBadge'
 import { MOCK_PQRS, TIPOS, CATEGORIAS, ESTADOS } from '../data/mockData'
 
 const TIPOS_FILTER = [
@@ -250,8 +250,9 @@ export default function PQRList() {
                       </span>
                     </td>
                     <td className="px-4 py-3 whitespace-nowrap">
-                      <span className="text-xs text-gray-600 dark:text-gray-400">
-                        {CATEGORIAS[pqr.categoria]?.icon} {CATEGORIAS[pqr.categoria]?.label}
+                      <span className="text-xs text-gray-600 dark:text-gray-400 flex items-center gap-1">
+                        <CategoryIcon category={pqr.categoria} size={14} />
+                        {CATEGORIAS[pqr.categoria]?.label}
                       </span>
                     </td>
                     <td className="px-4 py-3 whitespace-nowrap">

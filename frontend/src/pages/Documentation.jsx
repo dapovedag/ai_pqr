@@ -14,6 +14,16 @@ import {
   FileCode,
   Layers,
   Package,
+  Code2,
+  Palette,
+  BarChart3,
+  Rocket,
+  Table2,
+  CheckCircle,
+  Flame,
+  Bot,
+  Triangle,
+  Github,
 } from 'lucide-react'
 
 // Componente de nodo del diagrama
@@ -396,28 +406,28 @@ function StackTab() {
           </h3>
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">⚛️</span>
+              <Code2 size={24} className="text-blue-500" />
               <div>
                 <p className="font-semibold">React</p>
                 <p className="text-sm text-gray-500">Biblioteca JavaScript para interfaces de usuario</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">⚡</span>
+              <Zap size={24} className="text-yellow-500" />
               <div>
                 <p className="font-semibold">Vite</p>
                 <p className="text-sm text-gray-500">Build tool y servidor de desarrollo</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">🎨</span>
+              <Palette size={24} className="text-cyan-500" />
               <div>
                 <p className="font-semibold">Tailwind CSS</p>
                 <p className="text-sm text-gray-500">Framework CSS utility-first</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">📊</span>
+              <BarChart3 size={24} className="text-indigo-500" />
               <div>
                 <p className="font-semibold">Recharts</p>
                 <p className="text-sm text-gray-500">Graficos y visualizaciones</p>
@@ -434,28 +444,28 @@ function StackTab() {
           </h3>
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">🐍</span>
+              <FileCode size={24} className="text-green-500" />
               <div>
                 <p className="font-semibold">Python</p>
                 <p className="text-sm text-gray-500">Lenguaje de programacion principal</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">🚀</span>
+              <Rocket size={24} className="text-teal-500" />
               <div>
                 <p className="font-semibold">FastAPI</p>
                 <p className="text-sm text-gray-500">Framework web asincrono de alto rendimiento</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">🗄️</span>
+              <Table2 size={24} className="text-gray-500" />
               <div>
                 <p className="font-semibold">SQLAlchemy</p>
                 <p className="text-sm text-gray-500">ORM para base de datos</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">✅</span>
+              <CheckCircle size={24} className="text-green-500" />
               <div>
                 <p className="font-semibold">Pydantic</p>
                 <p className="text-sm text-gray-500">Validacion de datos y esquemas</p>
@@ -472,28 +482,28 @@ function StackTab() {
           </h3>
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">🔥</span>
+              <Flame size={24} className="text-orange-500" />
               <div>
                 <p className="font-semibold">PyTorch</p>
                 <p className="text-sm text-gray-500">Framework de deep learning</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">🤗</span>
+              <Bot size={24} className="text-yellow-600" />
               <div>
                 <p className="font-semibold">Transformers (HuggingFace)</p>
                 <p className="text-sm text-gray-500">Modelos pre-entrenados NLP</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">🧠</span>
+              <Brain size={24} className="text-purple-500" />
               <div>
                 <p className="font-semibold">BETO (BERT Espanol)</p>
                 <p className="text-sm text-gray-500">Modelo de lenguaje para clasificacion</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">⚡</span>
+              <Zap size={24} className="text-green-500" />
               <div>
                 <p className="font-semibold">Groq API</p>
                 <p className="text-sm text-gray-500">LLM para sugerencias de respuesta (Llama 3.1)</p>
@@ -510,28 +520,28 @@ function StackTab() {
           </h3>
           <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <span className="text-2xl">▲</span>
+              <Triangle size={24} className="text-black dark:text-white" />
               <div>
                 <p className="font-semibold">Vercel</p>
                 <p className="text-sm text-gray-500">Hosting frontend con CDN global</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">☁️</span>
+              <Cloud size={24} className="text-blue-500" />
               <div>
                 <p className="font-semibold">Azure Container Apps</p>
                 <p className="text-sm text-gray-500">Hosting backend serverless</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">🗃️</span>
+              <Database size={24} className="text-blue-600" />
               <div>
                 <p className="font-semibold">Azure SQL Server</p>
                 <p className="text-sm text-gray-500">Base de datos relacional en la nube</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">🐙</span>
+              <Github size={24} className="text-gray-700 dark:text-gray-300" />
               <div>
                 <p className="font-semibold">GitHub</p>
                 <p className="text-sm text-gray-500">Control de versiones y CI/CD</p>
