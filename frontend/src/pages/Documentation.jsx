@@ -375,75 +375,6 @@ function RequerimientosTab() {
 
 // Tab: Stack Tecnologico
 function StackTab() {
-  const stacks = {
-    frontend: {
-      title: 'Frontend',
-      color: 'blue',
-      icon: Monitor,
-      items: [
-        { name: 'React', version: '18.2.0', desc: 'Biblioteca UI declarativa con hooks' },
-        { name: 'Vite', version: '5.0.12', desc: 'Build tool ultrarapido con HMR' },
-        { name: 'React Router', version: '6.21.2', desc: 'Enrutamiento SPA' },
-        { name: 'TanStack Query', version: '5.17.9', desc: 'Gestion de estado del servidor' },
-        { name: 'Tailwind CSS', version: '3.4.1', desc: 'Framework CSS utility-first' },
-        { name: 'Recharts', version: '2.10.4', desc: 'Graficos y visualizaciones' },
-        { name: 'Lucide React', version: '0.312.0', desc: 'Iconos SVG' },
-        { name: 'Axios', version: '1.6.5', desc: 'Cliente HTTP para peticiones API' },
-      ],
-    },
-    backend: {
-      title: 'Backend',
-      color: 'green',
-      icon: Server,
-      items: [
-        { name: 'Python', version: '3.10+', desc: 'Lenguaje de programacion' },
-        { name: 'FastAPI', version: '0.128.0', desc: 'Framework web asincrono' },
-        { name: 'Uvicorn', version: '0.40.0', desc: 'Servidor ASGI' },
-        { name: 'SQLAlchemy', version: '2.0.45', desc: 'ORM para base de datos' },
-        { name: 'Pydantic', version: '2.12.5', desc: 'Validacion de datos' },
-      ],
-    },
-    ml: {
-      title: 'Machine Learning / IA',
-      color: 'purple',
-      icon: Brain,
-      items: [
-        { name: 'PyTorch', version: '2.9.1', desc: 'Framework de deep learning' },
-        { name: 'Transformers', version: '4.57.5', desc: 'Modelos pre-entrenados (HuggingFace)' },
-        { name: 'BETO', version: 'bert-base-spanish-wwm-cased', desc: 'BERT para espanol (dccuchile)' },
-        { name: 'Sentence-Transformers', version: '5.2.0', desc: 'Embeddings semanticos' },
-        { name: 'Groq API', version: '1.0.0', desc: 'Inferencia LLM (Llama 3.1 8B)' },
-        { name: 'Scikit-learn', version: '1.7.2', desc: 'Metricas y utilidades ML' },
-      ],
-    },
-    infrastructure: {
-      title: 'Infraestructura',
-      color: 'orange',
-      icon: Cloud,
-      items: [
-        { name: 'Vercel', version: 'Hobby', desc: 'Hosting frontend (CDN global)' },
-        { name: 'Azure Container Apps', version: 'Consumption', desc: 'Hosting backend (serverless)' },
-        { name: 'Azure SQL Server', version: 'Serverless Gen5', desc: 'Base de datos relacional' },
-        { name: 'GitHub', version: 'Actions', desc: 'Control de versiones y CI/CD' },
-        { name: 'Docker', version: 'Latest', desc: 'Contenedorizacion' },
-      ],
-    },
-  }
-
-  const colorClasses = {
-    blue: 'bg-blue-50 border-blue-200 dark:bg-blue-900/20 dark:border-blue-800',
-    green: 'bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800',
-    purple: 'bg-purple-50 border-purple-200 dark:bg-purple-900/20 dark:border-purple-800',
-    orange: 'bg-orange-50 border-orange-200 dark:bg-orange-900/20 dark:border-orange-800',
-  }
-
-  const iconColors = {
-    blue: 'text-blue-600',
-    green: 'text-green-600',
-    purple: 'text-purple-600',
-    orange: 'text-orange-600',
-  }
-
   return (
     <div className="space-y-6">
       <div className="card">
@@ -452,61 +383,183 @@ function StackTab() {
           Stack Tecnologico
         </h2>
         <p className="text-gray-600 mb-6">
-          Lenguajes, frameworks y herramientas utilizadas en el diseno y desarrollo del sistema PQRS Classifier.
+          Lenguajes, frameworks y plataformas utilizadas en el desarrollo del sistema PQRS Classifier.
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-6">
-        {Object.values(stacks).map((stack) => {
-          const Icon = stack.icon
-          return (
-            <div
-              key={stack.title}
-              className={`card border-2 ${colorClasses[stack.color]}`}
-            >
-              <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                <Icon size={24} className={iconColors[stack.color]} />
-                {stack.title}
-              </h3>
-              <div className="space-y-3">
-                {stack.items.map((item) => (
-                  <div key={item.name} className="flex items-start gap-3">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
-                        <span className="font-medium">{item.name}</span>
-                        <span className="text-xs px-2 py-0.5 bg-gray-200 dark:bg-gray-700 rounded">
-                          {item.version}
-                        </span>
-                      </div>
-                      <p className="text-sm text-gray-500">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+        {/* Frontend */}
+        <div className="card border-2 bg-blue-50 border-blue-200 dark:bg-blue-900/20 dark:border-blue-800">
+          <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+            <Monitor size={24} className="text-blue-600" />
+            Frontend
+          </h3>
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">⚛️</span>
+              <div>
+                <p className="font-semibold">React</p>
+                <p className="text-sm text-gray-500">Biblioteca JavaScript para interfaces de usuario</p>
               </div>
             </div>
-          )
-        })}
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">⚡</span>
+              <div>
+                <p className="font-semibold">Vite</p>
+                <p className="text-sm text-gray-500">Build tool y servidor de desarrollo</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🎨</span>
+              <div>
+                <p className="font-semibold">Tailwind CSS</p>
+                <p className="text-sm text-gray-500">Framework CSS utility-first</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">📊</span>
+              <div>
+                <p className="font-semibold">Recharts</p>
+                <p className="text-sm text-gray-500">Graficos y visualizaciones</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Backend */}
+        <div className="card border-2 bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800">
+          <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+            <Server size={24} className="text-green-600" />
+            Backend
+          </h3>
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🐍</span>
+              <div>
+                <p className="font-semibold">Python</p>
+                <p className="text-sm text-gray-500">Lenguaje de programacion principal</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🚀</span>
+              <div>
+                <p className="font-semibold">FastAPI</p>
+                <p className="text-sm text-gray-500">Framework web asincrono de alto rendimiento</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🗄️</span>
+              <div>
+                <p className="font-semibold">SQLAlchemy</p>
+                <p className="text-sm text-gray-500">ORM para base de datos</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">✅</span>
+              <div>
+                <p className="font-semibold">Pydantic</p>
+                <p className="text-sm text-gray-500">Validacion de datos y esquemas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Machine Learning */}
+        <div className="card border-2 bg-purple-50 border-purple-200 dark:bg-purple-900/20 dark:border-purple-800">
+          <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+            <Brain size={24} className="text-purple-600" />
+            Machine Learning / IA
+          </h3>
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🔥</span>
+              <div>
+                <p className="font-semibold">PyTorch</p>
+                <p className="text-sm text-gray-500">Framework de deep learning</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🤗</span>
+              <div>
+                <p className="font-semibold">Transformers (HuggingFace)</p>
+                <p className="text-sm text-gray-500">Modelos pre-entrenados NLP</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🧠</span>
+              <div>
+                <p className="font-semibold">BETO (BERT Espanol)</p>
+                <p className="text-sm text-gray-500">Modelo de lenguaje para clasificacion</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">⚡</span>
+              <div>
+                <p className="font-semibold">Groq API</p>
+                <p className="text-sm text-gray-500">LLM para sugerencias de respuesta (Llama 3.1)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Infraestructura */}
+        <div className="card border-2 bg-orange-50 border-orange-200 dark:bg-orange-900/20 dark:border-orange-800">
+          <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+            <Cloud size={24} className="text-orange-600" />
+            Infraestructura
+          </h3>
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">▲</span>
+              <div>
+                <p className="font-semibold">Vercel</p>
+                <p className="text-sm text-gray-500">Hosting frontend con CDN global</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">☁️</span>
+              <div>
+                <p className="font-semibold">Azure Container Apps</p>
+                <p className="text-sm text-gray-500">Hosting backend serverless</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🗃️</span>
+              <div>
+                <p className="font-semibold">Azure SQL Server</p>
+                <p className="text-sm text-gray-500">Base de datos relacional en la nube</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🐙</span>
+              <div>
+                <p className="font-semibold">GitHub</p>
+                <p className="text-sm text-gray-500">Control de versiones y CI/CD</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Resumen de arquitectura */}
+      {/* Resumen visual */}
       <div className="card bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900">
-        <h3 className="font-semibold text-lg mb-4">Resumen de Arquitectura</h3>
+        <h3 className="font-semibold text-lg mb-4">Arquitectura del Sistema</h3>
         <div className="grid md:grid-cols-4 gap-4 text-center">
-          <div>
+          <div className="p-4">
             <p className="text-3xl font-bold text-blue-600">React</p>
             <p className="text-sm text-gray-500">Frontend SPA</p>
           </div>
-          <div>
+          <div className="p-4">
             <p className="text-3xl font-bold text-green-600">FastAPI</p>
             <p className="text-sm text-gray-500">Backend REST</p>
           </div>
-          <div>
+          <div className="p-4">
             <p className="text-3xl font-bold text-purple-600">BERT</p>
             <p className="text-sm text-gray-500">Clasificacion ML</p>
           </div>
-          <div>
+          <div className="p-4">
             <p className="text-3xl font-bold text-orange-600">Azure</p>
-            <p className="text-sm text-gray-500">Cloud Infrastructure</p>
+            <p className="text-sm text-gray-500">Cloud</p>
           </div>
         </div>
       </div>

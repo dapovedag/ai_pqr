@@ -1,0 +1,70 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="30%" style="stop-color:#1a1a3e"/>
+      <stop offset="60%" style="stop-color:#2d1b4e"/>
+      <stop offset="100%" style="stop-color:#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" style="stop-color:rgba(99,102,241,0.15)"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="20%" cy="80%" r="40%">
+      <stop offset="0%" style="stop-color:rgba(139,92,246,0.1)"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Glows -->
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- Grid pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(99,102,241,0.05)" stroke-width="1"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Particles -->
+  <circle cx="120" cy="95" r="4" fill="rgba(99,102,241,0.4)"/>
+  <circle cx="1050" cy="160" r="5" fill="rgba(99,102,241,0.3)"/>
+  <circle cx="200" cy="500" r="4" fill="rgba(99,102,241,0.4)"/>
+  <circle cx="1000" cy="450" r="6" fill="rgba(99,102,241,0.3)"/>
+  <circle cx="80" cy="300" r="3" fill="rgba(99,102,241,0.5)"/>
+
+  <!-- AI Icon -->
+  <g transform="translate(550, 140)">
+    <circle cx="50" cy="50" r="45" stroke="url(#accent)" stroke-width="2" fill="rgba(99,102,241,0.1)"/>
+    <path d="M30 50 Q30 35 45 35 Q50 30 55 35 Q70 35 70 50 Q70 65 55 65 Q50 70 45 65 Q30 65 30 50Z"
+          stroke="url(#accent)" stroke-width="2" fill="rgba(99,102,241,0.2)"/>
+    <circle cx="40" cy="45" r="4" fill="#818cf8"/>
+    <circle cx="60" cy="45" r="4" fill="#818cf8"/>
+    <circle cx="50" cy="55" r="3" fill="#818cf8"/>
+    <line x1="40" y1="45" x2="50" y2="55" stroke="#818cf8" stroke-width="1.5"/>
+    <line x1="60" y1="45" x2="50" y2="55" stroke="#818cf8" stroke-width="1.5"/>
+    <line x1="40" y1="45" x2="60" y2="45" stroke="#818cf8" stroke-width="1.5"/>
+  </g>
+
+  <!-- Title -->
+  <text x="600" y="320" font-family="Segoe UI, system-ui, sans-serif" font-size="72" font-weight="700"
+        fill="white" text-anchor="middle" letter-spacing="-2">Sistema PQRS</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="380" font-family="Segoe UI, system-ui, sans-serif" font-size="32" font-weight="400"
+        fill="rgba(255,255,255,0.85)" text-anchor="middle">Clasificador Inteligente con IA</text>
+
+  <!-- Badge -->
+  <rect x="340" y="420" width="520" height="50" rx="25" fill="rgba(99,102,241,0.2)"
+        stroke="rgba(99,102,241,0.4)" stroke-width="1"/>
+  <circle cx="375" cy="445" r="5" fill="#22c55e"/>
+  <text x="600" y="453" font-family="Segoe UI, system-ui, sans-serif" font-size="18" font-weight="500"
+        fill="#a5b4fc" text-anchor="middle">Machine Learning · NLP · Clasificación Automática</text>
+</svg>
