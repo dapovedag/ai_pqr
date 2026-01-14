@@ -211,9 +211,9 @@ def main():
 
     generator = PQRGenerator(seed=42)
 
-    # Generar datasets
-    train_data = generator.generate_dataset(n_samples=8000, balanced=True)
-    val_data = generator.generate_dataset(n_samples=1000, balanced=True)
+    # Generar datasets (70/20/10 split = 10,000 total)
+    train_data = generator.generate_dataset(n_samples=7000, balanced=True)
+    val_data = generator.generate_dataset(n_samples=2000, balanced=True)
     test_data = generator.generate_dataset(n_samples=1000, balanced=True)
 
     # Crear directorio de salida

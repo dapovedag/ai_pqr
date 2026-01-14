@@ -254,16 +254,16 @@ function DiagramaTab() {
 
         <div className="grid md:grid-cols-3 gap-4">
           <div className="p-4 bg-blue-50 rounded-lg text-center">
-            <p className="text-3xl font-bold text-blue-600">8,000</p>
-            <p className="text-sm text-gray-600">Entrenamiento</p>
+            <p className="text-3xl font-bold text-blue-600">7,000</p>
+            <p className="text-sm text-gray-600">Entrenamiento (70%)</p>
           </div>
           <div className="p-4 bg-green-50 rounded-lg text-center">
-            <p className="text-3xl font-bold text-green-600">1,000</p>
-            <p className="text-sm text-gray-600">Validacion</p>
+            <p className="text-3xl font-bold text-green-600">2,000</p>
+            <p className="text-sm text-gray-600">Validacion (20%)</p>
           </div>
           <div className="p-4 bg-purple-50 rounded-lg text-center">
             <p className="text-3xl font-bold text-purple-600">1,000</p>
-            <p className="text-sm text-gray-600">Test</p>
+            <p className="text-sm text-gray-600">Test (10%)</p>
           </div>
         </div>
 
