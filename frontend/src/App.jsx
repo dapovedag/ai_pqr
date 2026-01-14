@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
 import Layout from './components/layout/Layout'
 import Dashboard from './pages/Dashboard'
 import NewPQR from './pages/NewPQR'
@@ -9,16 +10,19 @@ import Documentation from './pages/Documentation'
 
 function App() {
   return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/nueva" element={<NewPQR />} />
-        <Route path="/pqrs" element={<PQRList />} />
-        <Route path="/pqrs/:id" element={<PQRDetail />} />
-        <Route path="/analytics" element={<Analytics />} />
-        <Route path="/documentacion" element={<Documentation />} />
-      </Routes>
-    </Layout>
+    <>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/nueva" element={<NewPQR />} />
+          <Route path="/pqrs" element={<PQRList />} />
+          <Route path="/pqrs/:id" element={<PQRDetail />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/documentacion" element={<Documentation />} />
+        </Routes>
+      </Layout>
+      <VercelAnalytics />
+    </>
   )
 }
 
