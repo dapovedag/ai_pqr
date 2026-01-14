@@ -16,7 +16,9 @@
 | Frontend | ✅ Completado | React + Vite + Tailwind |
 | Vercel Config | ✅ Completado | vercel.json + README + .env.production |
 | Despliegue Backend | ⏳ Pendiente | Docker + Azure Container Apps |
-| Despliegue Frontend | ⏳ Listo | Vercel (manual por usuario) |
+| Despliegue Frontend | ✅ Completado | https://ai-pqr.vercel.app |
+| Dataset Sintético | ✅ Generado | 10,000 PQRs (8K train, 1K val, 1K test) |
+| Entrenamiento BERT | ⏳ Pendiente | Requiere GPU o ~3h en CPU |
 
 ---
 
