@@ -1,0 +1,317 @@
+/* Sistema de Diseño PQRS Dashboard */
+
+:root {
+  /* === COLORES DE MARCA === */
+  --brand-blue: #31bdeb;
+  --brand-green-dark: #1ab273;
+  --brand-green-light: #8dc853;
+  --brand-dark: #0d0e20;
+
+  /* === COLORES SEMÁNTICOS PQRS === */
+  --pqrs-peticion: #31bdeb;
+  --pqrs-queja: #e57373;
+  --pqrs-reclamo: #f0c88d;
+  --pqrs-sugerencia: #8dc853;
+
+  /* === ESTADOS === */
+  --status-pending: #f0c88d;
+  --status-in-progress: #31bdeb;
+  --status-resolved: #1ab273;
+  --status-closed: #6b6880;
+
+  /* === BASE (heredado) === */
+  --background: #f8f7fa;
+  --foreground: #3d3c4f;
+  --card: #ffffff;
+  --card-foreground: #3d3c4f;
+  --popover: #ffffff;
+  --popover-foreground: #3d3c4f;
+  --primary: #31bdeb;
+  --primary-foreground: #ffffff;
+  --secondary: #dfd9ec;
+  --secondary-foreground: #3d3c4f;
+  --muted: #dcd9e3;
+  --muted-foreground: #6b6880;
+  --accent: #1ab273;
+  --accent-foreground: #ffffff;
+  --destructive: #e57373;
+  --destructive-foreground: #ffffff;
+  --border: #cec9d9;
+  --input: #eae7f0;
+  --ring: #31bdeb;
+
+  /* === GRÁFICOS === */
+  --chart-1: #31bdeb;
+  --chart-2: #1ab273;
+  --chart-3: #8dc853;
+  --chart-4: #f0c88d;
+  --chart-5: #e57373;
+
+  /* === SIDEBAR === */
+  --sidebar: #f1eff5;
+  --sidebar-foreground: #3d3c4f;
+  --sidebar-primary: #31bdeb;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1ab273;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #d7d2e0;
+  --sidebar-ring: #31bdeb;
+
+  /* === TIPOGRAFÍA === */
+  --font-sans: 'Geist', sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* === ESPACIADO Y BORDES === */
+  --radius: 0.5rem;
+  --radius-sm: 0.25rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
+  /* === SOMBRAS === */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* === SOMBRA BOTÓN ESTILO 30 === */
+  --btn-shadow: rgba(13, 14, 32, 0.4) 0 2px 4px, rgba(13, 14, 32, 0.3) 0 7px 13px -3px;
+  --btn-shadow-hover: rgba(13, 14, 32, 0.4) 0 4px 8px, rgba(13, 14, 32, 0.3) 0 7px 13px -3px;
+}
+
+.dark {
+  --background: #0d0e20;
+  --foreground: #e0ddef;
+  --card: #1a1b2e;
+  --card-foreground: #e0ddef;
+  --popover: #1a1b2e;
+  --popover-foreground: #e0ddef;
+  --primary: #31bdeb;
+  --primary-foreground: #0d0e20;
+  --secondary: #2a2b3d;
+  --secondary-foreground: #e0ddef;
+  --muted: #242031;
+  --muted-foreground: #a09aad;
+  --accent: #1ab273;
+  --accent-foreground: #0d0e20;
+  --destructive: #e57373;
+  --destructive-foreground: #0d0e20;
+  --border: #2a2b3d;
+  --input: #1a1b2e;
+  --ring: #31bdeb;
+
+  --sidebar: #0a0b18;
+  --sidebar-foreground: #e0ddef;
+  --sidebar-primary: #31bdeb;
+  --sidebar-primary-foreground: #0d0e20;
+  --sidebar-accent: #1ab273;
+  --sidebar-accent-foreground: #0d0e20;
+  --sidebar-border: #2a2b3d;
+  --sidebar-ring: #31bdeb;
+}
+
+/* === COMPONENTES === */
+
+/* Botón Estilo 30 Adaptado */
+.btn {
+  align-items: center;
+  appearance: none;
+  border-radius: var(--radius-sm);
+  border-width: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-mono);
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  overflow: hidden;
+  padding: 0 16px;
+  position: relative;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: var(--brand-blue);
+  color: white;
+  box-shadow: var(--btn-shadow), rgba(49, 189, 235, 0.3) 0 -3px 0 inset;
+}
+
+.btn-primary:hover {
+  box-shadow: var(--btn-shadow-hover), rgba(49, 189, 235, 0.3) 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.btn-primary:active {
+  box-shadow: rgba(49, 189, 235, 0.4) 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.btn-success {
+  background-color: var(--brand-green-dark);
+  color: white;
+  box-shadow: var(--btn-shadow), rgba(26, 178, 115, 0.3) 0 -3px 0 inset;
+}
+
+.btn-success:hover {
+  box-shadow: var(--btn-shadow-hover), rgba(26, 178, 115, 0.3) 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--card);
+  color: var(--foreground);
+  box-shadow: var(--btn-shadow), var(--border) 0 -3px 0 inset;
+}
+
+.btn-secondary:hover {
+  box-shadow: var(--btn-shadow-hover), var(--border) 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+/* Badges PQRS */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.badge-peticion {
+  background: rgba(49, 189, 235, 0.15);
+  color: #31bdeb;
+}
+
+.badge-queja {
+  background: rgba(229, 115, 115, 0.15);
+  color: #e57373;
+}
+
+.badge-reclamo {
+  background: rgba(240, 200, 141, 0.2);
+  color: #c9a054;
+}
+
+.badge-sugerencia {
+  background: rgba(141, 200, 83, 0.15);
+  color: #6fa33f;
+}
+
+/* Status Badges */
+.badge-pending {
+  background: rgba(240, 200, 141, 0.2);
+  color: #c9a054;
+}
+
+.badge-progress {
+  background: rgba(49, 189, 235, 0.15);
+  color: #31bdeb;
+}
+
+.badge-resolved {
+  background: rgba(26, 178, 115, 0.15);
+  color: #1ab273;
+}
+
+.badge-closed {
+  background: rgba(107, 104, 128, 0.15);
+  color: #6b6880;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.metric-card {
+  border-left: 4px solid var(--metric-color, var(--primary));
+}
+
+.metric-card[data-type="peticion"] { --metric-color: var(--pqrs-peticion); }
+.metric-card[data-type="queja"] { --metric-color: var(--pqrs-queja); }
+.metric-card[data-type="reclamo"] { --metric-color: var(--pqrs-reclamo); }
+.metric-card[data-type="sugerencia"] { --metric-color: var(--pqrs-sugerencia); }
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--foreground);
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  margin-top: 0.5rem;
+}
+
+.metric-trend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.metric-trend.positive { color: var(--brand-green-dark); }
+.metric-trend.negative { color: var(--destructive); }
+
+/* Grid Layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1280px) {
+  .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.pulse {
+  animation: pulse 2s infinite;
+}
