@@ -14,7 +14,9 @@
 | Backend - ML/BERT | ✅ Completado | Clasificador + embeddings |
 | Backend - Groq | ✅ Completado | Rotación de 3 API keys |
 | Frontend | ✅ Completado | React + Vite + Tailwind |
-| Despliegue | ⏳ Pendiente | Docker + Azure Container Apps |
+| Vercel Config | ✅ Completado | vercel.json + README + .env.production |
+| Despliegue Backend | ⏳ Pendiente | Docker + Azure Container Apps |
+| Despliegue Frontend | ⏳ Listo | Vercel (manual por usuario) |
 
 ---
 
@@ -187,7 +189,39 @@ c:\Users\User\PQR\
 - Detalle con PQRs similares
 - Analíticas interactivas
 
-**Próximo paso:** Desplegar en Azure Container Apps + Vercel
+### 2026-01-14 - Vercel Deployment Preparado
+
+**Archivos creados para Vercel:**
+- `frontend/vercel.json` - Configuración de framework y rewrites
+- `frontend/README.md` - Instrucciones de despliegue
+- `frontend/.env.production` - Variables de entorno producción
+
+**Configuración vercel.json:**
+```json
+{
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://pqr-backend.azurecontainerapps.io/api/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" }
+      ]
+    }
+  ]
+}
+```
+
+**Próximo paso:** Desplegar backend en Azure Container Apps
 
 ---
 
@@ -300,3 +334,51 @@ curl -X POST http://localhost:8000/api/v1/responses/suggest \
   -H "Content-Type: application/json" \
   -d '{"texto": "Me quejo por el mal servicio recibido", "tipo": "queja", "categoria": "servicios_publicos"}'
 ```
+
+---
+
+## 11. Despliegue en Vercel (Frontend)
+
+### Opción 1: Desde la Web de Vercel
+
+1. Ir a [vercel.com/new](https://vercel.com/new)
+2. Importar el repositorio `dapovedag/ai_pqr`
+3. Configurar:
+   - **Framework Preset**: Vite
+   - **Root Directory**: `frontend`
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+4. Agregar variable de entorno:
+   ```
+   VITE_API_URL=https://pqr-backend.azurecontainerapps.io/api/v1
+   ```
+5. Click en **Deploy**
+
+### Opción 2: Desde CLI
+
+```bash
+# Instalar Vercel CLI
+npm i -g vercel
+
+# Login con token
+vercel login --token QZoYk3j9B2Qh1lbk8TbNOuTy
+
+# Desde carpeta frontend
+cd frontend
+
+# Vincular proyecto
+vercel link
+
+# Agregar variable de entorno
+vercel env add VITE_API_URL
+# Ingresar: https://pqr-backend.azurecontainerapps.io/api/v1
+
+# Desplegar a producción
+vercel --prod
+```
+
+### Después del Despliegue
+
+1. Vercel dará una URL como: `https://ai-pqr.vercel.app`
+2. Configurar CORS en el backend para permitir esta URL
+3. Actualizar `VITE_API_URL` si cambia la URL del backend
