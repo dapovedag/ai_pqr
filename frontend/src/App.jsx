@@ -5,6 +5,7 @@ import NewPQR from './pages/NewPQR'
 import PQRList from './pages/PQRList'
 import PQRDetail from './pages/PQRDetail'
 import Analytics from './pages/Analytics'
+import Documentation from './pages/Documentation'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/pqrs" element={<PQRList />} />
         <Route path="/pqrs/:id" element={<PQRDetail />} />
         <Route path="/analytics" element={<Analytics />} />
+        <Route path="/documentacion" element={<Documentation />} />
       </Routes>
     </Layout>
   )

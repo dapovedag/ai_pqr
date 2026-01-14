@@ -4,6 +4,7 @@ import {
   FilePlus,
   FileText,
   BarChart3,
+  BookOpen,
   Menu,
   X,
 } from 'lucide-react'
@@ -14,6 +15,7 @@ const navItems = [
   { path: '/nueva', icon: FilePlus, label: 'Nueva PQR' },
   { path: '/pqrs', icon: FileText, label: 'Listado' },
   { path: '/analytics', icon: BarChart3, label: 'Analíticas' },
+  { path: '/documentacion', icon: BookOpen, label: 'Documentación' },
 ]
 
 export default function Layout({ children }) {
@@ -42,9 +44,11 @@ export default function Layout({ children }) {
         <div className="flex flex-col h-full">
           {/* Logo */}
           <div className="flex items-center gap-3 px-6 py-5 border-b dark:border-gray-700">
-            <div className="w-10 h-10 bg-brand-blue rounded-lg flex items-center justify-center">
-              <FileText className="text-white" size={24} />
-            </div>
+            <img
+              src="/images/logo.png"
+              alt="PQRS Logo"
+              className="w-10 h-10 object-contain"
+            />
             <div>
               <h1 className="text-lg font-bold text-gray-900 dark:text-white">PQRS</h1>
               <p className="text-xs text-gray-500 dark:text-gray-400">Clasificador IA</p>
@@ -82,6 +86,9 @@ export default function Layout({ children }) {
             </p>
             <p className="text-xs text-gray-400 dark:text-gray-500">
               BERT + Groq API
+            </p>
+            <p className="text-xs text-gray-400 dark:text-gray-500 mt-2">
+              PQRS Classifier® 2026
             </p>
           </div>
         </div>
